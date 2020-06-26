@@ -10,32 +10,33 @@ import Foundation
 
 class HomeData: Decodable {
     var devices: [Device] = []
+    var user: User
+}
 
-    required init(from decoder: Decoder) throws {
-        var container =
-            try decoder.container(keyedBy: CodingKeys.self).nestedUnkeyedContainer(forKey: .devices)
+enum Device: Decodable {
+    case light(Light)
+    case heater(Heater)
+    case shutter(Shutter)
+    case unkonwn
 
-        var devices = [Device]()
-        while !container.isAtEnd {
-            let itemContainer = try container.nestedContainer(keyedBy: CodingKeys.self)
-
-            switch try itemContainer.decode(String.self, forKey: .productType) {
-            case "heater": devices.append(try! Heater(from: itemContainer.superDecoder()))
-            case "light": devices.append(try! Light(from: itemContainer.superDecoder()))
-            case "shutter": devices.append(try! Shutter(from: itemContainer.superDecoder()))
-            default: fatalError("Unknown type")
-            }
-        }
-
-        self.devices = devices
-        self.user = try! User(from: decoder)
+    private enum CodingKeys : String, CodingKey {
+        case productType
     }
 
-    var user: User
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let productType = try! container.decode(String.self, forKey: .productType)
 
-    private enum CodingKeys: String, CodingKey {
-        case devices
-        case user
-        case productType
+        print(productType)
+        switch productType {
+        case "Light":
+            self = .light(try! Light(from: decoder))
+        case "Heater":
+            self = .heater(try! Heater(from: decoder))
+        case "RollerShutter":
+            self = .shutter(try! Shutter(from: decoder))
+        default:
+            self = .unkonwn
+        }
     }
 }

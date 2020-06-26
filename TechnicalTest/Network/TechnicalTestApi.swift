@@ -10,23 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-/// HTTP method definitions.
-///
-/// See RFC https://tools.ietf.org/html/rfc7231#section-4.3
-enum HTTPMethod: String {
-    case options = "OPTIONS"
-    case get     = "GET"
-    case head    = "HEAD"
-    case post    = "POST"
-    case put     = "PUT"
-    case patch   = "PATCH"
-    case delete  = "DELETE"
-    case trace   = "TRACE"
-    case connect = "CONNECT"
-}
-
 class TechnicalTestApi {
-    func getHomeData() -> Observable<HomeData> {
+    static func getHomeData() -> Observable<HomeData> {
         guard let requestUrl = URL(string: "http://storage42.com/modulotest/data.json") else {
             fatalError("Unable to genreate URL from invalid string")
         }
@@ -38,7 +23,7 @@ class TechnicalTestApi {
             timeoutInterval: defaultRequestTimeout
         )
 
-        urlRequest.httpMethod = HTTPMethod.get.rawValue
+        urlRequest.httpMethod = "GET"
 
         return URLSession.shared.rx.data(request: urlRequest).map({ data in
             return try JSONDecoder().decode(HomeData.self, from: data)

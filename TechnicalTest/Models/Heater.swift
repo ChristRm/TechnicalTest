@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Heater: Codable, Device {
+class Heater: Codable {
     var id: Int
     var deviceName: String
     var productType: String

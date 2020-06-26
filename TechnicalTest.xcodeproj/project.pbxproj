@@ -13,15 +13,22 @@
 		9D23E7E624A50D3F00AF5799 /* Heater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23E7E524A50D3F00AF5799 /* Heater.swift */; };
 		9D23E7E824A50D4700AF5799 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23E7E724A50D4700AF5799 /* Light.swift */; };
 		9D23E7EA24A50D5100AF5799 /* Shutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23E7E924A50D5100AF5799 /* Shutter.swift */; };
-		9D23E7EC24A5312000AF5799 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23E7EB24A5312000AF5799 /* Device.swift */; };
 		9D23E7F024A53AE100AF5799 /* TechnicalTestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23E7EF24A53AE100AF5799 /* TechnicalTestApi.swift */; };
 		9D23E7F324A53BAB00AF5799 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D23E7F224A53BAB00AF5799 /* RxSwift.framework */; };
 		9D23E7F624A53E5F00AF5799 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D23E7F524A53E5F00AF5799 /* RxCocoa.framework */; };
 		9DB2AB2024A21D6400CAB2E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2AB1F24A21D6400CAB2E3 /* AppDelegate.swift */; };
-		9DB2AB2224A21D6400CAB2E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2AB2124A21D6400CAB2E3 /* ViewController.swift */; };
+		9DB2AB2224A21D6400CAB2E3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2AB2124A21D6400CAB2E3 /* DashboardViewController.swift */; };
 		9DB2AB2824A21D6400CAB2E3 /* TechnicalTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2AB2624A21D6400CAB2E3 /* TechnicalTest.xcdatamodeld */; };
 		9DB2AB2A24A21D6500CAB2E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DB2AB2924A21D6500CAB2E3 /* Assets.xcassets */; };
 		9DB2AB2D24A21D6500CAB2E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DB2AB2B24A21D6500CAB2E3 /* LaunchScreen.storyboard */; };
+		9DB35F3024A64B98007A8139 /* DevicesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB35F2F24A64B98007A8139 /* DevicesSection.swift */; };
+		9DB35F3224A64BBB007A8139 /* DeviceCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB35F3124A64BBB007A8139 /* DeviceCellModel.swift */; };
+		9DB35F3424A64C3A007A8139 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB35F3324A64C3A007A8139 /* DeviceCell.swift */; };
+		9DB35F3624A65EA8007A8139 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB35F3524A65EA8007A8139 /* Differentiator.framework */; };
+		9DC1534924A5E50200EDB186 /* UITableView+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1534824A5E50200EDB186 /* UITableView+dequeueReusableCell.swift */; };
+		9DC1534B24A5E54800EDB186 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1534A24A5E54800EDB186 /* ReusableView.swift */; };
+		9DC1534D24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1534C24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift */; };
+		9DC1534F24A61F5B00EDB186 /* DashboardViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1534E24A61F5B00EDB186 /* DashboardViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,17 +38,24 @@
 		9D23E7E524A50D3F00AF5799 /* Heater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heater.swift; sourceTree = "<group>"; };
 		9D23E7E724A50D4700AF5799 /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
 		9D23E7E924A50D5100AF5799 /* Shutter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shutter.swift; sourceTree = "<group>"; };
-		9D23E7EB24A5312000AF5799 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		9D23E7EF24A53AE100AF5799 /* TechnicalTestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalTestApi.swift; sourceTree = "<group>"; };
 		9D23E7F224A53BAB00AF5799 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = TechnicalTest/Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		9D23E7F524A53E5F00AF5799 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = TechnicalTest/Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		9DB2AB1C24A21D6400CAB2E3 /* TechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB2AB1F24A21D6400CAB2E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9DB2AB2124A21D6400CAB2E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9DB2AB2124A21D6400CAB2E3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		9DB2AB2724A21D6400CAB2E3 /* TechnicalTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TechnicalTest.xcdatamodel; sourceTree = "<group>"; };
 		9DB2AB2924A21D6500CAB2E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DB2AB2C24A21D6500CAB2E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DB2AB2E24A21D6500CAB2E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DB35F2F24A64B98007A8139 /* DevicesSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesSection.swift; sourceTree = "<group>"; };
+		9DB35F3124A64BBB007A8139 /* DeviceCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellModel.swift; sourceTree = "<group>"; };
+		9DB35F3324A64C3A007A8139 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
+		9DB35F3524A65EA8007A8139 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = TechnicalTest/Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
+		9DC1534824A5E50200EDB186 /* UITableView+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
+		9DC1534A24A5E54800EDB186 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		9DC1534C24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
+		9DC1534E24A61F5B00EDB186 /* DashboardViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DB35F3624A65EA8007A8139 /* Differentiator.framework in Frameworks */,
 				9D23E7F624A53E5F00AF5799 /* RxCocoa.framework in Frameworks */,
 				9D23E7F324A53BAB00AF5799 /* RxSwift.framework in Frameworks */,
 			);
@@ -60,7 +75,8 @@
 		9D23E7DD24A4D52400AF5799 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9DB2AB2124A21D6400CAB2E3 /* ViewController.swift */,
+				9DB2AB2124A21D6400CAB2E3 /* DashboardViewController.swift */,
+				9DC1534E24A61F5B00EDB186 /* DashboardViewViewModel.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -74,7 +90,6 @@
 				9D23E7E524A50D3F00AF5799 /* Heater.swift */,
 				9D23E7E724A50D4700AF5799 /* Light.swift */,
 				9D23E7E924A50D5100AF5799 /* Shutter.swift */,
-				9D23E7EB24A5312000AF5799 /* Device.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -90,6 +105,7 @@
 		9D23E7F124A53BAB00AF5799 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9DB35F3524A65EA8007A8139 /* Differentiator.framework */,
 				9D23E7F524A53E5F00AF5799 /* RxCocoa.framework */,
 				9D23E7F224A53BAB00AF5799 /* RxSwift.framework */,
 			);
@@ -116,6 +132,8 @@
 		9DB2AB1E24A21D6400CAB2E3 /* TechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
+				9DB35F2E24A64B6D007A8139 /* Views */,
+				9DC1534724A5E4E500EDB186 /* Extensions */,
 				9D23E7ED24A53A7B00AF5799 /* Network */,
 				9D23E7DE24A4D59700AF5799 /* Models */,
 				9D23E7DD24A4D52400AF5799 /* View Controllers */,
@@ -128,6 +146,26 @@
 			path = TechnicalTest;
 			sourceTree = "<group>";
 		};
+		9DB35F2E24A64B6D007A8139 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DB35F2F24A64B98007A8139 /* DevicesSection.swift */,
+				9DB35F3124A64BBB007A8139 /* DeviceCellModel.swift */,
+				9DB35F3324A64C3A007A8139 /* DeviceCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DC1534724A5E4E500EDB186 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DC1534824A5E50200EDB186 /* UITableView+dequeueReusableCell.swift */,
+				9DC1534C24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift */,
+				9DC1534A24A5E54800EDB186 /* ReusableView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +176,7 @@
 				9DB2AB1824A21D6400CAB2E3 /* Sources */,
 				9DB2AB1924A21D6400CAB2E3 /* Frameworks */,
 				9DB2AB1A24A21D6400CAB2E3 /* Resources */,
+				9DC1534624A5E37400EDB186 /* Carthage copy */,
 			);
 			buildRules = (
 			);
@@ -193,6 +232,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9DC1534624A5E37400EDB186 /* Carthage copy */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/TechnicalTest/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/TechnicalTest/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/TechnicalTest/Carthage/Build/iOS/Differentiator.framework",
+			);
+			name = "Carthage copy";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9DB2AB1824A21D6400CAB2E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -203,12 +266,18 @@
 				9D23E7F024A53AE100AF5799 /* TechnicalTestApi.swift in Sources */,
 				9D23E7E024A4D83600AF5799 /* HomeData.swift in Sources */,
 				9DB2AB2824A21D6400CAB2E3 /* TechnicalTest.xcdatamodeld in Sources */,
-				9DB2AB2224A21D6400CAB2E3 /* ViewController.swift in Sources */,
+				9DB35F3424A64C3A007A8139 /* DeviceCell.swift in Sources */,
+				9DB35F3224A64BBB007A8139 /* DeviceCellModel.swift in Sources */,
+				9DC1534924A5E50200EDB186 /* UITableView+dequeueReusableCell.swift in Sources */,
+				9DB2AB2224A21D6400CAB2E3 /* DashboardViewController.swift in Sources */,
+				9DB35F3024A64B98007A8139 /* DevicesSection.swift in Sources */,
+				9DC1534F24A61F5B00EDB186 /* DashboardViewViewModel.swift in Sources */,
+				9DC1534B24A5E54800EDB186 /* ReusableView.swift in Sources */,
 				9D23E7E224A4FBB100AF5799 /* User.swift in Sources */,
+				9DC1534D24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift in Sources */,
 				9D23E7EA24A50D5100AF5799 /* Shutter.swift in Sources */,
 				9D23E7E824A50D4700AF5799 /* Light.swift in Sources */,
 				9DB2AB2024A21D6400CAB2E3 /* AppDelegate.swift in Sources */,
-				9D23E7EC24A5312000AF5799 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

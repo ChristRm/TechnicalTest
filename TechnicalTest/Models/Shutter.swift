@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Shutter: Codable, Device {
+class Shutter: Codable {
     var id: Int
     var deviceName: String
     var productType: String
