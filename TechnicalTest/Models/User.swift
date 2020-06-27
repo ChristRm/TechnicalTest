@@ -8,11 +8,11 @@
 
 import Foundation
 
-class User: Codable {
-
-    var firstName: String
-    var lastName: String
-
-    var address: Address
-
-}
+//class User: ManagedObject {
+//
+//    @NSManaged var firstName: String
+//    @NSManaged var lastName: String
+//
+//    @NSManaged var address: Address
+//
+//}

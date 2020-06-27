@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import CoreData
 
-class Light: Codable {
-    var id: Int
-    var deviceName: String
-    var productType: String
+final class Light: ManagedObject {//: NSManagedObject, Codable {
+    @NSManaged var id: Int
+    @NSManaged var deviceName: String
+    @NSManaged var productType: String
     
-    var intensity: Int
-    var mode: String
+    @NSManaged var intensity: Int
+    @NSManaged var mode: String
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class HomeData: Decodable {
     var devices: [Device] = []
-    var user: User
+//    var user: User
 }
 
 enum Device: Decodable {
@@ -27,16 +27,17 @@ enum Device: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let productType = try! container.decode(String.self, forKey: .productType)
 
-        print(productType)
-        switch productType {
-        case "Light":
-            self = .light(try! Light(from: decoder))
-        case "Heater":
-            self = .heater(try! Heater(from: decoder))
-        case "RollerShutter":
-            self = .shutter(try! Shutter(from: decoder))
-        default:
+        #warning("Mapping disabled temporary in order to set up the models inside the managed object model")
+//        print(productType)
+//        switch productType {
+//        case "Light":
+//            self = .light(try! Light(from: decoder))
+//        case "Heater":
+//            self = .heater(try! Heater(from: decoder))
+//        case "RollerShutter":
+//            self = .shutter(try! Shutter(from: decoder))
+//        default:
             self = .unkonwn
-        }
+//        }
     }
 }

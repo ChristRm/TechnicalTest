@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import CoreData
 
-class Heater: Codable {
-    var id: Int
-    var deviceName: String
-    var productType: String
+final class Heater: ManagedObject {
+    @NSManaged var id: Int
+    @NSManaged var deviceName: String
+    @NSManaged var productType: String
 
-    var mode: String
-    var temperature: Int
+    @NSManaged var mode: String
+    @NSManaged var temperature: Int
+
+//    required convenience init(from decoder: Decoder) throws {
+//        self.in
+//    }
 }

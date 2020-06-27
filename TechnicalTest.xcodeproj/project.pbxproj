@@ -16,6 +16,9 @@
 		9D23E7F024A53AE100AF5799 /* TechnicalTestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23E7EF24A53AE100AF5799 /* TechnicalTestApi.swift */; };
 		9D23E7F324A53BAB00AF5799 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D23E7F224A53BAB00AF5799 /* RxSwift.framework */; };
 		9D23E7F624A53E5F00AF5799 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D23E7F524A53E5F00AF5799 /* RxCocoa.framework */; };
+		9D280EB524A7A10000B95BE6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D280EB224A7A10000B95BE6 /* CoreDataStack.swift */; };
+		9D280EB624A7A10000B95BE6 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D280EB324A7A10000B95BE6 /* ManagedObject.swift */; };
+		9D280EB724A7A10000B95BE6 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D280EB424A7A10000B95BE6 /* CoreDataModel.swift */; };
 		9DB2AB2024A21D6400CAB2E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2AB1F24A21D6400CAB2E3 /* AppDelegate.swift */; };
 		9DB2AB2224A21D6400CAB2E3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2AB2124A21D6400CAB2E3 /* DashboardViewController.swift */; };
 		9DB2AB2824A21D6400CAB2E3 /* TechnicalTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DB2AB2624A21D6400CAB2E3 /* TechnicalTest.xcdatamodeld */; };
@@ -41,6 +44,9 @@
 		9D23E7EF24A53AE100AF5799 /* TechnicalTestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalTestApi.swift; sourceTree = "<group>"; };
 		9D23E7F224A53BAB00AF5799 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = TechnicalTest/Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		9D23E7F524A53E5F00AF5799 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = TechnicalTest/Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		9D280EB224A7A10000B95BE6 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		9D280EB324A7A10000B95BE6 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
+		9D280EB424A7A10000B95BE6 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		9DB2AB1C24A21D6400CAB2E3 /* TechnicalTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechnicalTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB2AB1F24A21D6400CAB2E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DB2AB2124A21D6400CAB2E3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +118,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9D280EB124A7A0EA00B95BE6 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				9D280EB424A7A10000B95BE6 /* CoreDataModel.swift */,
+				9D280EB224A7A10000B95BE6 /* CoreDataStack.swift */,
+				9D280EB324A7A10000B95BE6 /* ManagedObject.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		9DB2AB1324A21D6400CAB2E3 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +148,7 @@
 		9DB2AB1E24A21D6400CAB2E3 /* TechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
+				9D280EB124A7A0EA00B95BE6 /* Persistence */,
 				9DB35F2E24A64B6D007A8139 /* Views */,
 				9DC1534724A5E4E500EDB186 /* Extensions */,
 				9D23E7ED24A53A7B00AF5799 /* Network */,
@@ -264,7 +281,9 @@
 				9D23E7E424A4FCD400AF5799 /* Address.swift in Sources */,
 				9D23E7E624A50D3F00AF5799 /* Heater.swift in Sources */,
 				9D23E7F024A53AE100AF5799 /* TechnicalTestApi.swift in Sources */,
+				9D280EB524A7A10000B95BE6 /* CoreDataStack.swift in Sources */,
 				9D23E7E024A4D83600AF5799 /* HomeData.swift in Sources */,
+				9D280EB624A7A10000B95BE6 /* ManagedObject.swift in Sources */,
 				9DB2AB2824A21D6400CAB2E3 /* TechnicalTest.xcdatamodeld in Sources */,
 				9DB35F3424A64C3A007A8139 /* DeviceCell.swift in Sources */,
 				9DB35F3224A64BBB007A8139 /* DeviceCellModel.swift in Sources */,
@@ -277,6 +296,7 @@
 				9DC1534D24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift in Sources */,
 				9D23E7EA24A50D5100AF5799 /* Shutter.swift in Sources */,
 				9D23E7E824A50D4700AF5799 /* Light.swift in Sources */,
+				9D280EB724A7A10000B95BE6 /* CoreDataModel.swift in Sources */,
 				9DB2AB2024A21D6400CAB2E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

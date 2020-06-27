@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
-class Shutter: Codable {
-    var id: Int
-    var deviceName: String
-    var productType: String
+final class Shutter: ManagedObject {// NSManagedObject, Codable {
+    @NSManaged var id: Int
+    @NSManaged var deviceName: String
+    @NSManaged var productType: String
 
-    var position: Int
+    @NSManaged var position: Int
 }
