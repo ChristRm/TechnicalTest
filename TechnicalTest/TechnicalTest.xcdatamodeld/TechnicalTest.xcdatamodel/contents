@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G6030" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Heater" representedClassName="Heater" syncable="YES">
-        <attribute name="deviceName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="mode" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="productType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="temperature" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    <entity name="Address" representedClassName=".Address" syncable="YES">
+        <attribute name="city" attributeType="String" syncable="YES"/>
+        <attribute name="country" attributeType="String" syncable="YES"/>
+        <attribute name="postalCode" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="street" attributeType="String" syncable="YES"/>
+        <attribute name="streetCode" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Light" representedClassName="Light" syncable="YES">
-        <attribute name="deviceName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="intensity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="mode" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="productType" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Heater" representedClassName=".Heater" syncable="YES">
+        <attribute name="deviceName" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mode" attributeType="String" syncable="YES"/>
+        <attribute name="productType" attributeType="String" syncable="YES"/>
+        <attribute name="temperature" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
-    <entity name="Shutter" representedClassName="Shutter" syncable="YES">
-        <attribute name="deviceName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="position" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="productType" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Light" representedClassName=".Light" syncable="YES">
+        <attribute name="deviceName" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="intensity" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mode" attributeType="String" syncable="YES"/>
+        <attribute name="productType" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Shutter" representedClassName=".Shutter" syncable="YES">
+        <attribute name="deviceName" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="position" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="productType" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="birthDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="firstName" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" attributeType="String" syncable="YES"/>
+        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Address" positionX="135" positionY="18" width="128" height="120"/>
         <element name="Heater" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="Light" positionX="144.59375" positionY="-20.5" width="128" height="45"/>
+        <element name="Light" positionX="144.59375" positionY="-20.5" width="128" height="120"/>
         <element name="Shutter" positionX="340.984375" positionY="-10.375" width="128" height="105"/>
+        <element name="User" positionX="135" positionY="18" width="128" height="105"/>
     </elements>
 </model>

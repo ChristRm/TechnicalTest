@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import CoreData
 import RxSwift
 import RxCocoa
+import RxCoreData
 
 final class DashboardViewViewModel {
 
@@ -17,16 +19,71 @@ final class DashboardViewViewModel {
     private let disposeBag = DisposeBag()
 
     // MARK: - Output
-    var employeesSections: Driver<[DevicesSection]> { return _devicesSections.asDriver() }
+    var devicesSections: Driver<[DevicesSection]> { return _devicesSections.asDriver() }
 
     // MARK: - Private properties
 
     private let _devicesSections = BehaviorRelay<[DevicesSection]>(value: [])
 
+    private let managedObjectContext: NSManagedObjectContext
+
+    init(managedObjectContext: NSManagedObjectContext) {
+        self.managedObjectContext = managedObjectContext
+    }
+
     func start() {
         TechnicalTestApi.getHomeData().map({ homeData -> [DevicesSection] in
-            print(homeData)
             return []
+        }).subscribe({ [weak self] event in
+            switch event {
+            case .completed:
+                self?.subscribeOnUpdates()
+                break
+            case .next(_):
+                break
+            case .error(_):
+                break
+            }
+        }).disposed(by: disposeBag)
+    }
+
+    // MARK: - Private methods
+
+    private func subscribeOnUpdates() {
+        let heatersObservable = managedObjectContext.rx.entities(fetchRequest: Heater.fetchRequest())
+        let lightsObservable = managedObjectContext.rx.entities(fetchRequest: Light.fetchRequest())
+        let shuttersObservable = managedObjectContext.rx.entities(fetchRequest: Shutter.fetchRequest())
+
+        Observable.combineLatest(
+            heatersObservable,
+            lightsObservable,
+            shuttersObservable,
+            resultSelector: { (heaters, lights, shutters) -> [DevicesSection] in
+                let lightsSection = DevicesSection(
+                    header: "Lights",
+                    items: lights.compactMap({ light -> DeviceCellModel in
+                        DeviceCellModel(deviceType: .light, title: light.deviceName,onSelect: {
+                            print("(Heater selected: \(light.deviceName)")
+                        })
+                }))
+
+                let heatersSection = DevicesSection(
+                    header: "Heaters",
+                    items: heaters.compactMap({ heater -> DeviceCellModel in
+                        DeviceCellModel(deviceType: .heater, title: heater.deviceName,onSelect: {
+                            print("(Heater selected: \(heater.deviceName)")
+                        })
+                    }))
+
+                let shuttersSection = DevicesSection(
+                    header: "Shutters",
+                    items: shutters.compactMap({ shutter -> DeviceCellModel in
+                        DeviceCellModel(deviceType: .shutter, title: shutter.deviceName,onSelect: {
+                            print("(Heater selected: \(shutter.deviceName)")
+                        })
+                    }))
+
+                return [lightsSection, heatersSection, shuttersSection]
         }).bind(to: _devicesSections).disposed(by: disposeBag)
     }
 }

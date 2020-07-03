@@ -17,7 +17,7 @@ class ManagedObject: NSManagedObject, CoreDataModel {
         super.init(entity: entity, insertInto: context)
     }
     
-    required init(isInserted: Bool = true) {
+    required init(isInserted: Bool = false) {
 
         let context =  type(of: self).coreDataStack.managedObjectContext
         let entityName = type(of: self).entityName
@@ -33,7 +33,13 @@ class ManagedObject: NSManagedObject, CoreDataModel {
     // MARK: - Class Methods
     
     class func fetchRequest<Model: ManagedObject>() -> NSFetchRequest<Model> {
-        return NSFetchRequest<Model>(entityName: entityName)
+        let fetchRequest = NSFetchRequest<Model>(entityName: entityName)
+
+        #warning("sort descriptor move somewhere")
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        return fetchRequest
     }
     
     // MARK: - Public Methods

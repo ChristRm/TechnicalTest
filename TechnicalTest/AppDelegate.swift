@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //        }
         let dashboardViewController = DashboardViewController()
-        dashboardViewController.viewModel = DashboardViewViewModel()
+        dashboardViewController.viewModel = DashboardViewViewModel(managedObjectContext: coreDataStack.managedObjectContext)
         window = UIWindow(frame: UIScreen.main.bounds)
 
         window?.rootViewController = dashboardViewController

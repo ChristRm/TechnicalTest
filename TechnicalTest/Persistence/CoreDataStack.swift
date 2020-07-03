@@ -96,12 +96,10 @@ final class CoreDataStack {
     }
     
     func dropDatabase() {
-        #warning("Add user entity here in order for it to be dropped together with the rest of entities")
-//        delete(entitiesOfType: User.self)
+        delete(entitiesOfType: User.self)
         delete(entitiesOfType: Heater.self)
         delete(entitiesOfType: Light.self)
         delete(entitiesOfType: Shutter.self)
         saveContext()
     }
 }
-

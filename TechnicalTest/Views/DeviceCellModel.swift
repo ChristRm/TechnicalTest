@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+enum DeviceType {
+    case heater
+    case shutter
+    case light
+}
+
+struct DeviceCellModel {
+    let deviceType: DeviceType
+    let title: String
+
+    let onSelect: () -> ()
+}

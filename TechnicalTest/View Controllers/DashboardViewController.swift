@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import RxSwift
 import RxDataSources
 
 final class DashboardViewController: UIViewController {
 
+    // MARK: - RxSwift
+    private let disposeBag = DisposeBag()
+
     // MARK: - Properties
-    var devicesCollectionView: UICollectionView?
+    private var devicesCollectionView: UICollectionView?
 
     // MARK: - ViewModel
     var viewModel: DashboardViewViewModel?
@@ -20,24 +24,33 @@ final class DashboardViewController: UIViewController {
     // MARK: - Lifecycle
 
     override func loadView() {
-        super.loadView()
+        let rootView = UIView(frame: .zero)
 
         let flowLayout = UICollectionViewFlowLayout()
         let devicesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
         devicesCollectionView.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(devicesCollectionView)
+        rootView.addSubview(devicesCollectionView)
+        rootView.backgroundColor = UIColor(hex: 0xfffff8)
 
-        devicesCollectionView.backgroundColor = .green
-        devicesCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        devicesCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        devicesCollectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        devicesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        devicesCollectionView.backgroundColor = .clear
+        devicesCollectionView.leftAnchor.constraint(equalTo: rootView.leftAnchor).isActive = true
+        devicesCollectionView.rightAnchor.constraint(equalTo: rootView.rightAnchor).isActive = true
+        devicesCollectionView.topAnchor.constraint(equalTo: rootView.topAnchor).isActive = true
+        devicesCollectionView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor).isActive = true
+
+        self.devicesCollectionView = devicesCollectionView
+
+        self.view = rootView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let viewModel = viewModel {
+            bindViewModel(viewModel)
+        }
+
         setupCollectionView()
     }
 
@@ -51,47 +64,35 @@ final class DashboardViewController: UIViewController {
     // MARK: - binding ViewModel
     private func bindViewModel(_ viewModel: DashboardViewViewModel) {
         guard let devicesCollectionView = devicesCollectionView else {
-            print("collectionView is not set up")
+            print("devicesCollectionView is not set up")
             return
         }
 
-//        let dataSource =
-//            RxCollectionViewSectionedReloadDataSource<EmployeesSection>(
-//                configureCell: { (_, collectionView, indexPath, cellModel) -> UICollectionViewCell in
-//                    let cell: EmployeeCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-//                    cell.setModel(cellModel)
-//
-//                    return cell
-//            })
-//
-//        dataSource.configureSupplementaryView = { (dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
-//            switch kind {
-//            case UICollectionView.elementKindSectionHeader:
-//                let reusableHeader =
-//                    collectionView.dequeueReusableSupplementaryView(
-//                        ofKind: UICollectionView.elementKindSectionHeader,
-//                        withReuseIdentifier: "EmployeesCollectionViewHeader",
-//                        for: indexPath
-//                )
-//
-//                guard let descriptionLabel = reusableHeader.viewWithTag(1) as? UILabel else {
-//                    fatalError("could not find the description label")
-//                }
-//
-//                guard let rightSideImageView = reusableHeader.viewWithTag(2) as? UIImageView else {
-//                    fatalError("could not find the image")
-//                }
-//
-//                let section = dataSource.sectionModels[indexPath.section]
-//                descriptionLabel.text = section.header
-//                rightSideImageView.image = section.rightSideImage
-//
-//                return reusableHeader
-//            default: fatalError("Unexpected element kind")
-//            }
-//        }
-//
-//        viewModel.employeesSections.drive(collectionView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
+        let dataSource =
+            RxCollectionViewSectionedReloadDataSource<DevicesSection>(
+                configureCell: { (_, collectionView, indexPath, cellModel) -> UICollectionViewCell in
+                    let cell: DeviceCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+                    cell.setModel(cellModel)
+
+                    return cell
+            })
+
+        dataSource.configureSupplementaryView = {
+            (dataSource, collectionView, kind, indexPath) -> UICollectionReusableView in
+            switch kind {
+            case UICollectionView.elementKindSectionHeader:
+                let reusableHeader: DevicesCollectionViewHeader =
+                    collectionView.dequeueReusableHeader(for: indexPath)
+
+                let section = dataSource.sectionModels[indexPath.section]
+                reusableHeader.setTitle(section.header)
+                
+                return reusableHeader
+            default: fatalError("Unexpected element kind")
+            }
+        }
+
+        viewModel.devicesSections.drive(devicesCollectionView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
 //
 //        viewModel.filtersViewViewModel.filtered.drive(onNext: { [weak self] filtered in
 //            self?.filterBarButtonItem?.image = filtered ? UIImage(named: "icFiltered") : UIImage(named: "icFilter")
@@ -99,27 +100,71 @@ final class DashboardViewController: UIViewController {
     }
 
     private func setupCollectionView() {
-//        devicesCollectionView?.registerReusableCell(type: EmployeeCollectionViewCell.self)
-//        devicesCollectionView?.register(
-//            UINib(
-//                nibName: "EmployeesCollectionViewHeader",
-//                bundle: nil
-//            ),
-//            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-//            withReuseIdentifier: "EmployeesCollectionViewHeader"
-//        )
-//
-//        devicesCollectionView?.rx.modelSelected(EmployeeCellModel.self).subscribe(
-//            onNext: { [weak self] cell in
-//                self?.performSegue(
-//                    withIdentifier: String(describing: EmployeeProfileViewController.self),
-//                    sender: cell
-//                )
-//            }, onError: nil,
-//               onCompleted: nil,
-//               onDisposed: nil
-//            ).disposed(by: disposeBag)
-//
-//        devicesCollectionView?.rx.setDelegate(self).disposed(by: disposeBag)
+        devicesCollectionView?.registerReusableCell(type: DeviceCollectionViewCell.self)
+        devicesCollectionView?.registerReusableHeader(type: DevicesCollectionViewHeader.self)
+
+        devicesCollectionView?.rx.setDelegate(self).disposed(by: disposeBag)
+    }
+}
+
+// MARK: - Constants
+
+extension DashboardViewController {
+    fileprivate enum Defaults {
+
+        static let itemTopMarginRatio: CGFloat = CGFloat(20.0/775.0)
+        static let itemSideMarginRatio: CGFloat = CGFloat(25.0/375.0)
+        static let itemSpacingRatio: CGFloat = CGFloat(15.0/375.0)
+
+        static let itemWidthToHeightRatio = CGFloat(1.0)
+
+        static let headerHeight = CGFloat(40.0)
+
+        static let additionalMargin = CGFloat(15.0)
+    }
+}
+
+// MARK: - HorizontalFloatingHeaderLayoutDelegate
+extension DashboardViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.bounds.width, height: Defaults.headerHeight)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: itemWidth(), height: itemHeight())
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: Defaults.itemTopMarginRatio * view.bounds.height,
+                            left: sideMargin(),
+                            bottom: 0.0,
+                            right: sideMargin())
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return view.bounds.height * Defaults.itemTopMarginRatio
+    }
+
+    private func sideMargin() -> CGFloat {
+        let margin = view.bounds.width * Defaults.itemSideMarginRatio
+        return margin
+    }
+
+    private func itemWidth() -> CGFloat {
+        let width = view.bounds.width - sideMargin() * 2.0
+        return width / CGFloat(2.0) - (view.bounds.width * Defaults.itemSpacingRatio) / 2.0
+    }
+
+    private func itemHeight() -> CGFloat {
+        return itemWidth() * (1.0 / Defaults.itemWidthToHeightRatio)
     }
 }

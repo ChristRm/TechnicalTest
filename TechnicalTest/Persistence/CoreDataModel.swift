@@ -19,7 +19,11 @@ protocol CoreDataModel {
 extension CoreDataModel {
 
     static var coreDataStack: CoreDataStack {
-        return (UIApplication.shared.delegate as! AppDelegate).coreDataStack
+        var coreDataStack: CoreDataStack?
+        DispatchQueue.main.sync {
+            coreDataStack = (UIApplication.shared.delegate as! AppDelegate).coreDataStack
+        }
+        return coreDataStack!
     }
     
     static var entityName: String {
@@ -30,4 +34,3 @@ extension CoreDataModel {
         return String(describing: self)
     }
 }
-

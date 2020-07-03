@@ -11,7 +11,7 @@ import UIKit
 extension UITableView {
 
     func registerReusableCell<T: UITableViewCell>(type: T.Type) {
-        register(UINib(nibName: T.staticReuseIdentifier, bundle: nil), forCellReuseIdentifier: T.staticReuseIdentifier)
+        register(type, forCellReuseIdentifier: T.staticReuseIdentifier)
     }
 
     func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
@@ -21,5 +21,4 @@ extension UITableView {
 
         return cell
     }
-
 }

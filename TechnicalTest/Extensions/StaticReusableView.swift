@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol ReusableView {
+protocol StaticReusableView {
 
     static var staticReuseIdentifier: String { get }
 
 }
 
-extension ReusableView {
+extension StaticReusableView {
 
     static var staticReuseIdentifier: String {
         return String(describing: self)
@@ -22,6 +22,7 @@ extension ReusableView {
 
 }
 
-extension UITableViewCell: ReusableView {}
+extension UITableViewCell: StaticReusableView {}
+extension UICollectionReusableView: StaticReusableView {}
 
-extension UICollectionViewCell: ReusableView {}
+
