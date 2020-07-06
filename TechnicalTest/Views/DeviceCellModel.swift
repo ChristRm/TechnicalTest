@@ -19,4 +19,5 @@ struct DeviceCellModel {
     let title: String
 
     let onSelect: () -> ()
+    let onLongPress: () -> ()
 }

@@ -22,12 +22,18 @@ final class DashboardViewViewModel {
         return UserViewViewModel(coreDataStack: coreDataStack)
     }
 
+    var lightViewViewModel: LightViewViewModel {
+        return LightViewViewModel(coreDataStack: coreDataStack)
+    }
+
     // MARK: - Output
     var devicesSections: Driver<[DevicesSection]> { return _devicesSections.asDriver() }
+    var confirmDeviceRemoval: Observable<(() -> Void)?> { return _confirmDeviceRemoval.asObservable() }
 
     // MARK: - Private properties
 
     private let _devicesSections = BehaviorRelay<[DevicesSection]>(value: [])
+    private let _confirmDeviceRemoval = BehaviorRelay<(() -> Void)?>(value: nil)
 
     private let coreDataStack: CoreDataStack
     private var managedObjectContext: NSManagedObjectContext {
@@ -74,24 +80,39 @@ final class DashboardViewViewModel {
                 let lightsSection = DevicesSection(
                     header: "Lights",
                     items: lights.compactMap({ light -> DeviceCellModel in
-                        DeviceCellModel(deviceType: .light, title: light.deviceName,onSelect: {
-                            print("(Heater selected: \(light.deviceName)")
+                        DeviceCellModel(deviceType: .light, title: light.deviceName, onSelect: {
+                            print("(Light selected: \(light.deviceName)")
+                        }, onLongPress: { [weak self] in
+                            self?._confirmDeviceRemoval.accept({ [weak self] in
+                                light.delete()
+                                self?.coreDataStack.saveContext()
+                            })
                         })
                 }))
 
                 let heatersSection = DevicesSection(
                     header: "Heaters",
                     items: heaters.compactMap({ heater -> DeviceCellModel in
-                        DeviceCellModel(deviceType: .heater, title: heater.deviceName,onSelect: {
+                        DeviceCellModel(deviceType: .heater, title: heater.deviceName, onSelect: {
                             print("(Heater selected: \(heater.deviceName)")
+                        }, onLongPress: { [weak self] in
+                            self?._confirmDeviceRemoval.accept({ [weak self] in
+                                heater.delete()
+                                self?.coreDataStack.saveContext()
+                            })
                         })
                     }))
 
                 let shuttersSection = DevicesSection(
                     header: "Shutters",
                     items: shutters.compactMap({ shutter -> DeviceCellModel in
-                        DeviceCellModel(deviceType: .shutter, title: shutter.deviceName,onSelect: {
-                            print("(Heater selected: \(shutter.deviceName)")
+                        DeviceCellModel(deviceType: .shutter, title: shutter.deviceName, onSelect: {
+                            print("(Shutter selected: \(shutter.deviceName)")
+                        }, onLongPress: { [weak self] in
+                            self?._confirmDeviceRemoval.accept({ [weak self] in
+                                shutter.delete()
+                                self?.coreDataStack.saveContext()
+                            })
                         })
                     }))
 

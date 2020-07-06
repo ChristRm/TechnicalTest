@@ -17,6 +17,7 @@ final class DashboardViewController: UIViewController {
 
     // MARK: - Properties
     private var devicesCollectionView: UICollectionView?
+    private var dataSource: RxCollectionViewSectionedReloadDataSource<DevicesSection>?
 
     // MARK: - ViewModel
     var viewModel: DashboardViewViewModel?
@@ -113,18 +114,79 @@ final class DashboardViewController: UIViewController {
             }
         }
 
-        viewModel.devicesSections.drive(devicesCollectionView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
+        viewModel.devicesSections.drive(
+            devicesCollectionView.rx.items(dataSource: dataSource)
+            ).disposed(by: disposeBag)
 
-//        viewModel.filtersViewViewModel.filtered.drive(onNext: { [weak self] filtered in
-//            self?.filterBarButtonItem?.image = filtered ? UIImage(named: "icFiltered") : UIImage(named: "icFilter")
-//            }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        devicesCollectionView.rx.modelSelected(DeviceCellModel.self).subscribe(onNext: { model in
+            model.onSelect()
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+
+        viewModel.confirmDeviceRemoval.subscribe({ [weak self] event in
+            switch event {
+            case .next(let confirm):
+                if let confirm = confirm {
+                    let alertController = UIAlertController(title: "Remove the device",
+                                                            message: "Are you sure you want to remove device?",
+                                                            preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Cancel",
+                                                            style: .default,
+                                                            handler: nil))
+
+                    alertController.addAction(UIAlertAction(title: "Remove",
+                                                            style: .default,
+                                                            handler: { _ in
+                                                                confirm()
+
+                    }))
+
+                    self?.present(alertController, animated: true, completion: nil)
+                }
+                break
+            default:
+                break
+            }
+        }).disposed(by: disposeBag)
+
+        self.dataSource = dataSource
     }
 
     private func setupCollectionView() {
-        devicesCollectionView?.registerReusableCell(type: DeviceCollectionViewCell.self)
-        devicesCollectionView?.registerReusableHeader(type: DevicesCollectionViewHeader.self)
+        guard let devicesCollectionView = devicesCollectionView else {
+            print("devicesCollectionView is not set up")
+            return
+        }
 
-        devicesCollectionView?.rx.setDelegate(self).disposed(by: disposeBag)
+        devicesCollectionView.registerReusableCell(type: DeviceCollectionViewCell.self)
+        devicesCollectionView.registerReusableHeader(type: DevicesCollectionViewHeader.self)
+
+        devicesCollectionView.rx.setDelegate(self).disposed(by: disposeBag)
+
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: nil)
+        longPressGestureRecognizer.rx.event.subscribe({ event in
+            switch event {
+            case .next(let gestureRecognizer):
+                guard gestureRecognizer.state != UIGestureRecognizer.State.ended else {
+                    return
+                }
+
+                let p = gestureRecognizer.location(in: devicesCollectionView)
+                if let indexPath = devicesCollectionView.indexPathForItem(at: p) {
+                    do {
+                        (try self.dataSource?.model(at: indexPath) as? DeviceCellModel)?.onLongPress()
+                    } catch {
+                        print("Failed to get model of long pressed cell")
+                    }
+                }
+            default:
+                break
+            }
+        }).disposed(by: disposeBag)
+
+        longPressGestureRecognizer.minimumPressDuration = 0.5
+        longPressGestureRecognizer.delaysTouchesBegan = true
+
+        devicesCollectionView.addGestureRecognizer(longPressGestureRecognizer)
     }
 }
 

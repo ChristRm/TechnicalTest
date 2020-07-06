@@ -38,11 +38,110 @@
 		9DC1534B24A5E54800EDB186 /* StaticReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1534A24A5E54800EDB186 /* StaticReusableView.swift */; };
 		9DC1534D24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1534C24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift */; };
 		9DC1534F24A61F5B00EDB186 /* DashboardViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1534E24A61F5B00EDB186 /* DashboardViewViewModel.swift */; };
+		9DDFA0D324B330AA001ACA93 /* LightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFA0D224B330AA001ACA93 /* LightViewController.swift */; };
+		9DDFA0D824B3346B001ACA93 /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFA0D724B3346B001ACA93 /* SevenSwitch.swift */; };
+		9DDFA0DA24B33931001ACA93 /* LightViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFA0D924B33931001ACA93 /* LightViewViewModel.swift */; };
+		9DDFA0DC24B37F4E001ACA93 /* ShutterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFA0DB24B37F4E001ACA93 /* ShutterViewController.swift */; };
+		9DDFA0DE24B37F6A001ACA93 /* HeaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFA0DD24B37F6A001ACA93 /* HeaterViewController.swift */; };
 		9DE458A524B0E4B500359332 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE458A424B0E4B500359332 /* UserViewController.swift */; };
 		9DE458A724B0E4C100359332 /* UserViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE458A624B0E4C100359332 /* UserViewViewModel.swift */; };
 		9DE458A924B0FB7B00359332 /* UserDefaults+TechnicalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE458A824B0FB7B00359332 /* UserDefaults+TechnicalTest.swift */; };
 		9DE458AB24B10CE700359332 /* DashboardRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE458AA24B10CE700359332 /* DashboardRoutes.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9DDFA10624B38E16001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10024B38E15001ACA93 /* RxDataSources.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C8984C5A1C36AF35001E4272;
+			remoteInfo = RxDataSources;
+		};
+		9DDFA10824B38E16001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10024B38E15001ACA93 /* RxDataSources.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C82C3C541F3B937500309AE8;
+			remoteInfo = Differentiator;
+		};
+		9DDFA10A24B38E16001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10024B38E15001ACA93 /* RxDataSources.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C81905AE1DEA019100AE679C;
+			remoteInfo = Tests;
+		};
+		9DDFA11924B38EBC001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C8165ABC21891AFF00494BEF;
+			remoteInfo = RxAtomic;
+		};
+		9DDFA11B24B38EBC001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C8A56AD71AD7424700B4673B;
+			remoteInfo = RxSwift;
+		};
+		9DDFA11D24B38EBC001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C809396D1B8A71760088E94D;
+			remoteInfo = RxCocoa;
+		};
+		9DDFA11F24B38EBC001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C8093BC71B8A71F00088E94D;
+			remoteInfo = RxBlocking;
+		};
+		9DDFA12124B38EBC001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C88FA50C1C25C44800CCFEA4;
+			remoteInfo = RxTest;
+		};
+		9DDFA12324B38EBC001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C83508C31C386F6F0027C24C;
+			remoteInfo = "AllTests-iOS";
+		};
+		9DDFA12524B38EBC001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C83509841C38740E0027C24C;
+			remoteInfo = "AllTests-tvOS";
+		};
+		9DDFA12724B38EBC001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C83509941C38742C0027C24C;
+			remoteInfo = "AllTests-macOS";
+		};
+		9DDFA12924B38EBC001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C85BA04B1C3878740075D68E;
+			remoteInfo = Microoptimizations;
+		};
+		9DDFA12B24B38EBC001ACA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C8E8BA551E2C181A00A4AC2C;
+			remoteInfo = Benchmarks;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9D23E7DF24A4D83600AF5799 /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
@@ -80,6 +179,13 @@
 		9DC1534A24A5E54800EDB186 /* StaticReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticReusableView.swift; sourceTree = "<group>"; };
 		9DC1534C24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
 		9DC1534E24A61F5B00EDB186 /* DashboardViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewViewModel.swift; sourceTree = "<group>"; };
+		9DDFA0D224B330AA001ACA93 /* LightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightViewController.swift; sourceTree = "<group>"; };
+		9DDFA0D724B3346B001ACA93 /* SevenSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenSwitch.swift; sourceTree = "<group>"; };
+		9DDFA0D924B33931001ACA93 /* LightViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightViewViewModel.swift; sourceTree = "<group>"; };
+		9DDFA0DB24B37F4E001ACA93 /* ShutterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterViewController.swift; sourceTree = "<group>"; };
+		9DDFA0DD24B37F6A001ACA93 /* HeaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaterViewController.swift; sourceTree = "<group>"; };
+		9DDFA10024B38E15001ACA93 /* RxDataSources.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RxDataSources.xcodeproj; path = TechnicalTest/Carthage/Checkouts/RxDataSources/RxDataSources.xcodeproj; sourceTree = "<group>"; };
+		9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rx.xcodeproj; path = TechnicalTest/Carthage/Checkouts/RxSwift/Rx.xcodeproj; sourceTree = "<group>"; };
 		9DE458A424B0E4B500359332 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		9DE458A624B0E4C100359332 /* UserViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewViewModel.swift; sourceTree = "<group>"; };
 		9DE458A824B0FB7B00359332 /* UserDefaults+TechnicalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+TechnicalTest.swift"; sourceTree = "<group>"; };
@@ -109,6 +215,10 @@
 				9DE458AA24B10CE700359332 /* DashboardRoutes.swift */,
 				9DE458A424B0E4B500359332 /* UserViewController.swift */,
 				9DE458A624B0E4C100359332 /* UserViewViewModel.swift */,
+				9DDFA0D224B330AA001ACA93 /* LightViewController.swift */,
+				9DDFA0D924B33931001ACA93 /* LightViewViewModel.swift */,
+				9DDFA0DB24B37F4E001ACA93 /* ShutterViewController.swift */,
+				9DDFA0DD24B37F6A001ACA93 /* HeaterViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -162,6 +272,7 @@
 				9D3CFADF24B2573F00A761A0 /* DatePickerTextField.h */,
 				9D3CFADE24B2573E00A761A0 /* DatePickerTextField.m */,
 				9D2CDB5B24B2FDA7002722BF /* DatePickerTextField+Rx.swift */,
+				9DDFA0D724B3346B001ACA93 /* SevenSwitch.swift */,
 			);
 			path = "3rd party";
 			sourceTree = "<group>";
@@ -169,6 +280,8 @@
 		9DB2AB1324A21D6400CAB2E3 = {
 			isa = PBXGroup;
 			children = (
+				9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */,
+				9DDFA10024B38E15001ACA93 /* RxDataSources.xcodeproj */,
 				9DB2AB1E24A21D6400CAB2E3 /* TechnicalTest */,
 				9DB2AB1D24A21D6400CAB2E3 /* Products */,
 				9D23E7F124A53BAB00AF5799 /* Frameworks */,
@@ -226,6 +339,33 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		9DDFA10124B38E15001ACA93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DDFA10724B38E16001ACA93 /* RxDataSources.framework */,
+				9DDFA10924B38E16001ACA93 /* Differentiator.framework */,
+				9DDFA10B24B38E16001ACA93 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DDFA10D24B38EBC001ACA93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DDFA11A24B38EBC001ACA93 /* RxAtomic.framework */,
+				9DDFA11C24B38EBC001ACA93 /* RxSwift.framework */,
+				9DDFA11E24B38EBC001ACA93 /* RxCocoa.framework */,
+				9DDFA12024B38EBC001ACA93 /* RxBlocking.framework */,
+				9DDFA12224B38EBC001ACA93 /* RxTest.framework */,
+				9DDFA12424B38EBC001ACA93 /* AllTests-iOS.xctest */,
+				9DDFA12624B38EBC001ACA93 /* AllTests-tvOS.xctest */,
+				9DDFA12824B38EBC001ACA93 /* AllTests-macOS.xctest */,
+				9DDFA12A24B38EBC001ACA93 /* PerformanceTests.app */,
+				9DDFA12C24B38EBC001ACA93 /* Benchmarks.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,12 +414,117 @@
 			mainGroup = 9DB2AB1324A21D6400CAB2E3;
 			productRefGroup = 9DB2AB1D24A21D6400CAB2E3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9DDFA10D24B38EBC001ACA93 /* Products */;
+					ProjectRef = 9DDFA10C24B38EBC001ACA93 /* Rx.xcodeproj */;
+				},
+				{
+					ProductGroup = 9DDFA10124B38E15001ACA93 /* Products */;
+					ProjectRef = 9DDFA10024B38E15001ACA93 /* RxDataSources.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9DB2AB1B24A21D6400CAB2E3 /* TechnicalTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9DDFA10724B38E16001ACA93 /* RxDataSources.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxDataSources.framework;
+			remoteRef = 9DDFA10624B38E16001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA10924B38E16001ACA93 /* Differentiator.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Differentiator.framework;
+			remoteRef = 9DDFA10824B38E16001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA10B24B38E16001ACA93 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 9DDFA10A24B38E16001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA11A24B38EBC001ACA93 /* RxAtomic.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxAtomic.framework;
+			remoteRef = 9DDFA11924B38EBC001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA11C24B38EBC001ACA93 /* RxSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxSwift.framework;
+			remoteRef = 9DDFA11B24B38EBC001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA11E24B38EBC001ACA93 /* RxCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxCocoa.framework;
+			remoteRef = 9DDFA11D24B38EBC001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA12024B38EBC001ACA93 /* RxBlocking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxBlocking.framework;
+			remoteRef = 9DDFA11F24B38EBC001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA12224B38EBC001ACA93 /* RxTest.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxTest.framework;
+			remoteRef = 9DDFA12124B38EBC001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA12424B38EBC001ACA93 /* AllTests-iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AllTests-iOS.xctest";
+			remoteRef = 9DDFA12324B38EBC001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA12624B38EBC001ACA93 /* AllTests-tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AllTests-tvOS.xctest";
+			remoteRef = 9DDFA12524B38EBC001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA12824B38EBC001ACA93 /* AllTests-macOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "AllTests-macOS.xctest";
+			remoteRef = 9DDFA12724B38EBC001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA12A24B38EBC001ACA93 /* PerformanceTests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			name = PerformanceTests.app;
+			path = Microoptimizations.app;
+			remoteRef = 9DDFA12924B38EBC001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9DDFA12C24B38EBC001ACA93 /* Benchmarks.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Benchmarks.xctest;
+			remoteRef = 9DDFA12B24B38EBC001ACA93 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9DB2AB1A24A21D6400CAB2E3 /* Resources */ = {
@@ -331,8 +576,10 @@
 				9D280EB524A7A10000B95BE6 /* CoreDataStack.swift in Sources */,
 				9D23E7E024A4D83600AF5799 /* HomeData.swift in Sources */,
 				9D82097C24ACCF3F00544B40 /* DeviceProtocol.swift in Sources */,
+				9DDFA0DE24B37F6A001ACA93 /* HeaterViewController.swift in Sources */,
 				9DE458AB24B10CE700359332 /* DashboardRoutes.swift in Sources */,
 				9D280EB624A7A10000B95BE6 /* ManagedObject.swift in Sources */,
+				9DDFA0DC24B37F4E001ACA93 /* ShutterViewController.swift in Sources */,
 				9DB2AB2824A21D6400CAB2E3 /* TechnicalTest.xcdatamodeld in Sources */,
 				9DB35F3424A64C3A007A8139 /* DeviceCollectionViewCell.swift in Sources */,
 				9DB35F3224A64BBB007A8139 /* DeviceCellModel.swift in Sources */,
@@ -342,7 +589,10 @@
 				9DB35F3024A64B98007A8139 /* DevicesSection.swift in Sources */,
 				9DC1534F24A61F5B00EDB186 /* DashboardViewViewModel.swift in Sources */,
 				9DE458A924B0FB7B00359332 /* UserDefaults+TechnicalTest.swift in Sources */,
+				9DDFA0DA24B33931001ACA93 /* LightViewViewModel.swift in Sources */,
+				9DDFA0D824B3346B001ACA93 /* SevenSwitch.swift in Sources */,
 				9DC1534B24A5E54800EDB186 /* StaticReusableView.swift in Sources */,
+				9DDFA0D324B330AA001ACA93 /* LightViewController.swift in Sources */,
 				9D23E7E224A4FBB100AF5799 /* User.swift in Sources */,
 				9DC1534D24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift in Sources */,
 				9D23E7EA24A50D5100AF5799 /* Shutter.swift in Sources */,

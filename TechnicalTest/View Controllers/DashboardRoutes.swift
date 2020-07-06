@@ -18,7 +18,21 @@ extension DashboardViewController {
         return userViewController
     }
 
+    private var lightViewController: LightViewController {
+        let lightViewController = LightViewController()
+
+        lightViewController.viewModel = viewModel?.lightViewViewModel
+
+        return lightViewController
+    }
+
+
     func pushUserScreen() {
         navigationController?.pushViewController(userViewController, animated: true)
+    }
+
+
+    func pushLightScreen() {
+        navigationController?.pushViewController(lightViewController, animated: true)
     }
 }

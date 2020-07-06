@@ -14,5 +14,4 @@ extension Reactive where Base: DatePickerTextField {
     public var date: Observable<NSDate?> {
         return observe(NSDate.self, "date")
     }
-
 }
