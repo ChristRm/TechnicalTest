@@ -28,12 +28,18 @@ final class DeviceCollectionViewCell: UICollectionViewCell {
         self.imageView = imageView
 
         let titleLabel = UILabel(frame: .zero)
+
+        titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(titleLabel)
 
         titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5.0).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 15.0).isActive = true
+
+        titleLabel.leftAnchor.constraint(greaterThanOrEqualTo: leftAnchor, constant: 5.0).isActive = true
+        titleLabel.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: 5.0).isActive = true
+
 
         self.titleLabel = titleLabel
     }

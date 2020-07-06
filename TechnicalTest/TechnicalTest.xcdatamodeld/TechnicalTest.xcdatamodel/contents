@@ -31,7 +31,7 @@
         <attribute name="birthDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="firstName" attributeType="String" syncable="YES"/>
         <attribute name="lastName" attributeType="String" syncable="YES"/>
-        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" syncable="YES"/>
+        <relationship name="address" maxCount="1" deletionRule="Nullify" destinationEntity="Address" syncable="YES"/>
     </entity>
     <elements>
         <element name="Address" positionX="135" positionY="18" width="128" height="120"/>

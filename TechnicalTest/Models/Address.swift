@@ -33,5 +33,7 @@ final class Address: ManagedObject, Decodable {
         self.street = try container.decode(String.self, forKey: .street)
         self.streetCode = try container.decode(String.self, forKey: .streetCode)
         self.country = try container.decode(String.self, forKey: .country)
+
+        persist()
     }
 }

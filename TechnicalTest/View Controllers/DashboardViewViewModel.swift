@@ -18,6 +18,10 @@ final class DashboardViewViewModel {
 
     private let disposeBag = DisposeBag()
 
+    var userViewViewModel: UserViewViewModel {
+        return UserViewViewModel(coreDataStack: coreDataStack)
+    }
+
     // MARK: - Output
     var devicesSections: Driver<[DevicesSection]> { return _devicesSections.asDriver() }
 
@@ -25,26 +29,34 @@ final class DashboardViewViewModel {
 
     private let _devicesSections = BehaviorRelay<[DevicesSection]>(value: [])
 
-    private let managedObjectContext: NSManagedObjectContext
+    private let coreDataStack: CoreDataStack
+    private var managedObjectContext: NSManagedObjectContext {
+        return coreDataStack.managedObjectContext
+    }
 
-    init(managedObjectContext: NSManagedObjectContext) {
-        self.managedObjectContext = managedObjectContext
+    init(coreDataStack: CoreDataStack) {
+        self.coreDataStack = coreDataStack
     }
 
     func start() {
-        TechnicalTestApi.getHomeData().map({ homeData -> [DevicesSection] in
-            return []
-        }).subscribe({ [weak self] event in
-            switch event {
-            case .completed:
-                self?.subscribeOnUpdates()
-                break
-            case .next(_):
-                break
-            case .error(_):
-                break
-            }
-        }).disposed(by: disposeBag)
+        if UserDefaults.dataGrabbed {
+            self.subscribeOnUpdates()
+        } else {
+            TechnicalTestApi.getHomeData().map({ homeData -> [DevicesSection] in
+                return []
+            }).subscribe({ [weak self] event in
+                switch event {
+                case .completed:
+                    self?.coreDataStack.saveContext()
+                    self?.subscribeOnUpdates()
+                    break
+                case .next(_):
+                    break
+                case .error(_):
+                    break
+                }
+            }).disposed(by: disposeBag)
+        }
     }
 
     // MARK: - Private methods

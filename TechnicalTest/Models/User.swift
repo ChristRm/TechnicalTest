@@ -30,10 +30,10 @@ final class User: ManagedObject, Decodable {
         self.firstName = try container.decode(String.self, forKey: .firstName)
         self.lastName = try container.decode(String.self, forKey: .lastName)
         let birthDateTimestamp = try! container.decode(Int.self, forKey: .birthDate)
-        self.birthDate = Date(timeIntervalSince1970: Double(birthDateTimestamp))
-
-        self.address = try container.decode(Address.self, forKey: .address)
+        self.birthDate = Date(timeIntervalSince1970: TimeInterval(birthDateTimestamp))
 
         persist()
+
+        self.address = try container.decode(Address.self, forKey: .address)
     }
 }

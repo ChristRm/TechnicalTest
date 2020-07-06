@@ -51,6 +51,27 @@ final class DashboardViewController: UIViewController {
             bindViewModel(viewModel)
         }
 
+        title = "Dashboard"
+
+        let button =
+            UIBarButtonItem(
+                image: UIImage(named: "user"),
+                style: .plain,
+                target: self,
+                action: nil
+        )
+
+        button.rx.tap.subscribe({ [weak self] tapped in
+            switch tapped {
+            case .next(_):
+                self?.pushUserScreen()
+                break
+            default:
+                break
+            }
+        }).disposed(by: disposeBag)
+        self.navigationItem.rightBarButtonItem  = button
+
         setupCollectionView()
     }
 
@@ -93,7 +114,7 @@ final class DashboardViewController: UIViewController {
         }
 
         viewModel.devicesSections.drive(devicesCollectionView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
-//
+
 //        viewModel.filtersViewViewModel.filtered.drive(onNext: { [weak self] filtered in
 //            self?.filterBarButtonItem?.image = filtered ? UIImage(named: "icFiltered") : UIImage(named: "icFilter")
 //            }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)

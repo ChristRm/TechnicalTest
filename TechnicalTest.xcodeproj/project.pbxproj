@@ -19,7 +19,9 @@
 		9D280EB524A7A10000B95BE6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D280EB224A7A10000B95BE6 /* CoreDataStack.swift */; };
 		9D280EB624A7A10000B95BE6 /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D280EB324A7A10000B95BE6 /* ManagedObject.swift */; };
 		9D280EB724A7A10000B95BE6 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D280EB424A7A10000B95BE6 /* CoreDataModel.swift */; };
+		9D2CDB5C24B2FDA7002722BF /* DatePickerTextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2CDB5B24B2FDA7002722BF /* DatePickerTextField+Rx.swift */; };
 		9D2F8D9624AF49B300EC277C /* DevicesCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F8D9524AF49B300EC277C /* DevicesCollectionViewHeader.swift */; };
+		9D3CFAE024B2573F00A761A0 /* DatePickerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3CFADE24B2573E00A761A0 /* DatePickerTextField.m */; };
 		9D4C074024ACA0C00098BB8E /* RxCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4C073F24ACA0C00098BB8E /* RxCoreData.framework */; };
 		9D82097C24ACCF3F00544B40 /* DeviceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D82097B24ACCF3F00544B40 /* DeviceProtocol.swift */; };
 		9D88616124AB8BED00161706 /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D88616024AB8BED00161706 /* UIColor+Convenience.swift */; };
@@ -36,6 +38,10 @@
 		9DC1534B24A5E54800EDB186 /* StaticReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1534A24A5E54800EDB186 /* StaticReusableView.swift */; };
 		9DC1534D24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1534C24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift */; };
 		9DC1534F24A61F5B00EDB186 /* DashboardViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC1534E24A61F5B00EDB186 /* DashboardViewViewModel.swift */; };
+		9DE458A524B0E4B500359332 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE458A424B0E4B500359332 /* UserViewController.swift */; };
+		9DE458A724B0E4C100359332 /* UserViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE458A624B0E4C100359332 /* UserViewViewModel.swift */; };
+		9DE458A924B0FB7B00359332 /* UserDefaults+TechnicalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE458A824B0FB7B00359332 /* UserDefaults+TechnicalTest.swift */; };
+		9DE458AB24B10CE700359332 /* DashboardRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE458AA24B10CE700359332 /* DashboardRoutes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +57,11 @@
 		9D280EB224A7A10000B95BE6 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		9D280EB324A7A10000B95BE6 /* ManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
 		9D280EB424A7A10000B95BE6 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		9D2CDB5B24B2FDA7002722BF /* DatePickerTextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatePickerTextField+Rx.swift"; sourceTree = "<group>"; };
 		9D2F8D9524AF49B300EC277C /* DevicesCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesCollectionViewHeader.swift; sourceTree = "<group>"; };
+		9D3CFADD24B2573D00A761A0 /* TechnicalTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TechnicalTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		9D3CFADE24B2573E00A761A0 /* DatePickerTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerTextField.m; sourceTree = "<group>"; };
+		9D3CFADF24B2573F00A761A0 /* DatePickerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerTextField.h; sourceTree = "<group>"; };
 		9D4C073F24ACA0C00098BB8E /* RxCoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCoreData.framework; path = TechnicalTest/Carthage/Build/iOS/RxCoreData.framework; sourceTree = "<group>"; };
 		9D82097B24ACCF3F00544B40 /* DeviceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceProtocol.swift; sourceTree = "<group>"; };
 		9D88616024AB8BED00161706 /* UIColor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Convenience.swift"; sourceTree = "<group>"; };
@@ -70,6 +80,10 @@
 		9DC1534A24A5E54800EDB186 /* StaticReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticReusableView.swift; sourceTree = "<group>"; };
 		9DC1534C24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
 		9DC1534E24A61F5B00EDB186 /* DashboardViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewViewModel.swift; sourceTree = "<group>"; };
+		9DE458A424B0E4B500359332 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		9DE458A624B0E4C100359332 /* UserViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewViewModel.swift; sourceTree = "<group>"; };
+		9DE458A824B0FB7B00359332 /* UserDefaults+TechnicalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+TechnicalTest.swift"; sourceTree = "<group>"; };
+		9DE458AA24B10CE700359332 /* DashboardRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRoutes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +106,9 @@
 			children = (
 				9DB2AB2124A21D6400CAB2E3 /* DashboardViewController.swift */,
 				9DC1534E24A61F5B00EDB186 /* DashboardViewViewModel.swift */,
+				9DE458AA24B10CE700359332 /* DashboardRoutes.swift */,
+				9DE458A424B0E4B500359332 /* UserViewController.swift */,
+				9DE458A624B0E4C100359332 /* UserViewViewModel.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -139,6 +156,16 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		9D3CFADC24B2572500A761A0 /* 3rd party */ = {
+			isa = PBXGroup;
+			children = (
+				9D3CFADF24B2573F00A761A0 /* DatePickerTextField.h */,
+				9D3CFADE24B2573E00A761A0 /* DatePickerTextField.m */,
+				9D2CDB5B24B2FDA7002722BF /* DatePickerTextField+Rx.swift */,
+			);
+			path = "3rd party";
+			sourceTree = "<group>";
+		};
 		9DB2AB1324A21D6400CAB2E3 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +186,8 @@
 		9DB2AB1E24A21D6400CAB2E3 /* TechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
+				9D3CFADD24B2573D00A761A0 /* TechnicalTest-Bridging-Header.h */,
+				9D3CFADC24B2572500A761A0 /* 3rd party */,
 				9D280EB124A7A0EA00B95BE6 /* Persistence */,
 				9DB35F2E24A64B6D007A8139 /* Views */,
 				9DC1534724A5E4E500EDB186 /* Extensions */,
@@ -192,6 +221,7 @@
 				9DC1534C24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift */,
 				9DC1534A24A5E54800EDB186 /* StaticReusableView.swift */,
 				9D88616024AB8BED00161706 /* UIColor+Convenience.swift */,
+				9DE458A824B0FB7B00359332 /* UserDefaults+TechnicalTest.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,6 +259,7 @@
 				TargetAttributes = {
 					9DB2AB1B24A21D6400CAB2E3 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -294,19 +325,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D23E7E424A4FCD400AF5799 /* Address.swift in Sources */,
+				9DE458A524B0E4B500359332 /* UserViewController.swift in Sources */,
 				9D23E7E624A50D3F00AF5799 /* Heater.swift in Sources */,
 				9D23E7F024A53AE100AF5799 /* TechnicalTestApi.swift in Sources */,
 				9D280EB524A7A10000B95BE6 /* CoreDataStack.swift in Sources */,
 				9D23E7E024A4D83600AF5799 /* HomeData.swift in Sources */,
 				9D82097C24ACCF3F00544B40 /* DeviceProtocol.swift in Sources */,
+				9DE458AB24B10CE700359332 /* DashboardRoutes.swift in Sources */,
 				9D280EB624A7A10000B95BE6 /* ManagedObject.swift in Sources */,
 				9DB2AB2824A21D6400CAB2E3 /* TechnicalTest.xcdatamodeld in Sources */,
 				9DB35F3424A64C3A007A8139 /* DeviceCollectionViewCell.swift in Sources */,
 				9DB35F3224A64BBB007A8139 /* DeviceCellModel.swift in Sources */,
 				9DC1534924A5E50200EDB186 /* UITableView+dequeueReusableCell.swift in Sources */,
 				9DB2AB2224A21D6400CAB2E3 /* DashboardViewController.swift in Sources */,
+				9DE458A724B0E4C100359332 /* UserViewViewModel.swift in Sources */,
 				9DB35F3024A64B98007A8139 /* DevicesSection.swift in Sources */,
 				9DC1534F24A61F5B00EDB186 /* DashboardViewViewModel.swift in Sources */,
+				9DE458A924B0FB7B00359332 /* UserDefaults+TechnicalTest.swift in Sources */,
 				9DC1534B24A5E54800EDB186 /* StaticReusableView.swift in Sources */,
 				9D23E7E224A4FBB100AF5799 /* User.swift in Sources */,
 				9DC1534D24A61DB200EDB186 /* UICollectionView+dequeueReusableCell.swift in Sources */,
@@ -314,6 +349,8 @@
 				9D23E7E824A50D4700AF5799 /* Light.swift in Sources */,
 				9D280EB724A7A10000B95BE6 /* CoreDataModel.swift in Sources */,
 				9DB2AB2024A21D6400CAB2E3 /* AppDelegate.swift in Sources */,
+				9D2CDB5C24B2FDA7002722BF /* DatePickerTextField+Rx.swift in Sources */,
+				9D3CFAE024B2573F00A761A0 /* DatePickerTextField.m in Sources */,
 				9D88616124AB8BED00161706 /* UIColor+Convenience.swift in Sources */,
 				9D2F8D9624AF49B300EC277C /* DevicesCollectionViewHeader.swift in Sources */,
 			);
@@ -453,6 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -465,6 +503,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ChristianRusin.TechnicalTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TechnicalTest/TechnicalTest-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -474,6 +514,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -486,6 +527,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ChristianRusin.TechnicalTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TechnicalTest/TechnicalTest-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

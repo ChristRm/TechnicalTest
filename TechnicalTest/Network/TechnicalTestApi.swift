@@ -25,8 +25,11 @@ class TechnicalTestApi {
 
         urlRequest.httpMethod = "GET"
 
-        return URLSession.shared.rx.data(request: urlRequest).map({ data in
+        let result = URLSession.shared.rx.data(request: urlRequest).map({ data -> HomeData in
+            UserDefaults.set(dataGrabbed: true)
             return try JSONDecoder().decode(HomeData.self, from: data)
         })
+
+        return result
     }
 }
