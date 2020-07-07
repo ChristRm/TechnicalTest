@@ -148,7 +148,44 @@ final class DashboardViewController: UIViewController {
             }
         }).disposed(by: disposeBag)
 
+        bindViewModelRoutes(viewModel)
+
         self.dataSource = dataSource
+    }
+
+    private func bindViewModelRoutes(_ viewModel: DashboardViewViewModel) {
+        viewModel.selectedLight.subscribe({ [weak self] event in
+            switch event {
+            case .next(let light):
+                if let _ = light {
+                    self?.pushLightScreen()
+                }
+            default:
+                break
+            }
+        }).disposed(by: disposeBag)
+
+        viewModel.selectedShutter.subscribe({ [weak self] event in
+            switch event {
+            case .next(let shutter):
+                if let _ = shutter {
+                    self?.pushShutterScreen()
+                }
+            default:
+                break
+            }
+        }).disposed(by: disposeBag)
+
+        viewModel.selectedHeater.subscribe({ [weak self] event in
+            switch event {
+            case .next(let heater):
+                if let _ = heater {
+                    self?.pushHeaterScreen()
+                }
+            default:
+                break
+            }
+        }).disposed(by: disposeBag)
     }
 
     private func setupCollectionView() {

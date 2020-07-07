@@ -16,7 +16,7 @@ final class Heater: ManagedObject, Decodable, DeviceProtocol {
     @NSManaged var productType: String
 
     @NSManaged var mode: String
-    @NSManaged var temperature: Int
+    @NSManaged var temperature: Float
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -34,7 +34,7 @@ final class Heater: ManagedObject, Decodable, DeviceProtocol {
         self.deviceName = try! container.decode(String.self, forKey: .deviceName)
         self.productType = try! container.decode(String.self, forKey: .productType)
         self.mode = try! container.decode(String.self, forKey: .mode)
-        self.temperature = try! container.decode(Int.self, forKey: .temperature)
+        self.temperature = try! container.decode(Float.self, forKey: .temperature)
 
         persist()
     }

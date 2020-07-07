@@ -1,8 +1,8 @@
 //
-//  LightViewViewModel.swift
+//  HeaterViewViewModel.swift
 //  TechnicalTest
 //
-//  Created by Chris Rusin on 7/6/20.
+//  Created by Chris Rusin on 7/7/20.
 //  Copyright © 2020 ChristianRusin. All rights reserved.
 //
 
@@ -10,46 +10,45 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LightViewViewModel {
+class HeaterViewViewModel {
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
 
     private let coreDataStack: CoreDataStack
 
-    private var light: Light
+    private var heater: Heater
 
     // MARK: - Input
     private(set) var mode: BehaviorRelay<Bool?> = BehaviorRelay<Bool?>(value: nil)
-    private(set) var intensity: BehaviorRelay<Int?> = BehaviorRelay<Int?>(value: nil)
+    private(set) var temperature: BehaviorRelay<Float?> = BehaviorRelay<Float?>(value: nil)
 
-    init(coreDataStack: CoreDataStack, light: Light) {
+    init(coreDataStack: CoreDataStack, heater: Heater) {
         self.coreDataStack = coreDataStack
-        self.light = light
-        mode.accept(light.mode == "ON")
-        intensity.accept(light.intensity)
+        self.heater = heater
+        mode.accept(heater.mode == "ON")
+        temperature.accept(heater.temperature)
     }
 
     func start() {
         mode.subscribe({ [weak self] event in
             switch event {
             case .next(let on):
-                self?.light.mode = on == true ? "ON" : "OFF"
+                self?.heater.mode = on == true ? "ON" : "OFF"
                 self?.coreDataStack.saveContext()
             default:
                 break
             }
         }).disposed(by: disposeBag)
 
-        intensity.subscribe({ [weak self] event in
+        temperature.subscribe({ [weak self] event in
             switch event {
-            case .next(let intensity):
-                self?.light.intensity = intensity ?? 0
+            case .next(let temperature):
+                self?.heater.temperature = temperature ?? 0
                 self?.coreDataStack.saveContext()
             default:
                 break
             }
         }).disposed(by: disposeBag)
     }
-
 }

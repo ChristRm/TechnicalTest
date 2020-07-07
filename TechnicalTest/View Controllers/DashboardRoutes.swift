@@ -26,13 +26,35 @@ extension DashboardViewController {
         return lightViewController
     }
 
+    private var shutterViewController: ShutterViewController {
+        let shutterViewController = ShutterViewController()
+
+        shutterViewController.viewModel = viewModel?.shutterViewViewModel
+
+        return shutterViewController
+    }
+
+    private var heaterViewController: HeaterViewController {
+        let heaterViewController = HeaterViewController()
+
+        heaterViewController.viewModel = viewModel?.heaterViewViewModel
+
+        return heaterViewController
+    }
 
     func pushUserScreen() {
         navigationController?.pushViewController(userViewController, animated: true)
     }
 
-
     func pushLightScreen() {
         navigationController?.pushViewController(lightViewController, animated: true)
+    }
+
+    func pushShutterScreen() {
+        navigationController?.pushViewController(shutterViewController, animated: true)
+    }
+
+    func pushHeaterScreen() {
+        navigationController?.pushViewController(heaterViewController, animated: true)
     }
 }
