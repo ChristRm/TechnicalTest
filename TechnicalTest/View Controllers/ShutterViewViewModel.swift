@@ -14,9 +14,7 @@ class ShutterViewViewModel {
 
     // MARK: - RxSwift
     private let disposeBag = DisposeBag()
-
     private let coreDataStack: CoreDataStack
-
     private var shutter: Shutter
 
     // MARK: - Input
@@ -29,7 +27,7 @@ class ShutterViewViewModel {
     }
 
     func start() {
-        level.subscribe({ [weak self] event in
+        level.distinctUntilChanged().subscribe({ [weak self] event in
             switch event {
             case .next(let level):
                 self?.shutter.position = level ?? 0

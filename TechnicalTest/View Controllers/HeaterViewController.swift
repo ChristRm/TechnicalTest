@@ -134,10 +134,10 @@ class HeaterViewController: UIViewController {
             .bind(to: viewModel.temperature)
             .disposed(by: disposeBag)
 
-        temperatureSwitch.rx.on.debounce(1.0, scheduler: MainScheduler.instance)
+        temperatureSwitch.rx.isOn.debounce(1.0, scheduler: MainScheduler.instance)
             .bind(to: viewModel.mode).disposed(by: disposeBag)
 
-        temperatureSwitch.rx.on
+        temperatureSwitch.rx.isOn
             .subscribe(onNext: { [weak self] on in
                 self?.onOffLabel.text = on == true ? "ON" : "OFF"
                 }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)

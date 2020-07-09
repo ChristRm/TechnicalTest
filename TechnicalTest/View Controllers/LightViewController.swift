@@ -120,26 +120,38 @@ class LightViewController: UIViewController {
 
     // MARK: - binding ViewModel
     private func bindViewModel(_ viewModel: LightViewViewModel) {
-        onOffLabel.text = viewModel.mode.value == true ? "ON" : "OFF"
-        intensityLabel.text = "\(viewModel.intensity.value ?? 0)"
+//        onOffLabel.text = viewModel._mode.value == true ? "ON" : "OFF"
+//        intensityLabel.text = "\(viewModel._intensity.value ?? 0)"
 
-        lightSwitch.on = viewModel.mode.value == true
-        intensitySlider.value = Float(viewModel.intensity.value ?? 0) / 100.0
+//        lightSwitch.on = viewModel._mode.value == true
+//        lightSwitch.rx.isOn.bind(to: viewModel._mode).disposed(by: disposeBag)
+        viewModel.mode.drive(lightSwitch.rx.isOn).disposed(by: disposeBag)
+        viewModel.intensity.drive(intensitySlider.rx.value).disposed(by: disposeBag)
 
-        intensitySlider.rx.value.map({ [weak self] sliderValue -> Int in
-            let intValue = Int(sliderValue * 100.0)
-            self?.intensityLabel.text = "\(intValue)"
-            return intValue
-        }).debounce(1.0, scheduler: MainScheduler.instance)
-            .bind(to: viewModel.intensity)
-            .disposed(by: disposeBag)
+        viewModel.mode.map({ $0 ? "ON" : "OFF" }).drive(onOffLabel.rx.text).disposed(by: disposeBag)
+        viewModel.intensity.map({ "\(Int($0 * Float(100.0)))" }).drive(intensityLabel.rx.text).disposed(by: disposeBag)
 
-        lightSwitch.rx.on.debounce(1.0, scheduler: MainScheduler.instance)
-            .bind(to: viewModel.mode).disposed(by: disposeBag)
+        lightSwitch.rx.isOn.bind(to: viewModel.inputMode).disposed(by: disposeBag)
+        intensitySlider.rx.value.bind(to: viewModel.inputIntensity).disposed(by: disposeBag)
+//        intensitySlider.value = Float(viewModel._intensity.value ?? 0) / 100.0
 
-        lightSwitch.rx.on
-            .subscribe(onNext: { [weak self] on in
-                self?.onOffLabel.text = on == true ? "ON" : "OFF"
-                }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+//        intensitySlider.rx.value.map({ [weak self] sliderValue -> Int in
+//            let intValue = Int(sliderValue * 100.0)
+//            self?.intensityLabel.text = "\(intValue)"
+//            return intValue
+//        }).debounce(1.0, scheduler: MainScheduler.instance)
+//            .bind(to: viewModel._intensity)
+//            .disposed(by: disposeBag)
+
+//        lightSwitch.rx.isOn.debounce(1.0, scheduler: MainScheduler)
+//        lightSwitch.rx.isOn.bind(to: viewModel._intensity)
+
+//        lightSwitch.rx.on.debounce(1.0, scheduler: MainScheduler.instance)
+//            .bind(to: viewModel._mode).disposed(by: disposeBag)
+//
+//        lightSwitch.rx.on
+//            .subscribe(onNext: { [weak self] on in
+//                self?.onOffLabel.text = on == true ? "ON" : "OFF"
+//                }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
     }
 }
