@@ -93,46 +93,61 @@ final class DashboardViewViewModel {
             lightsObservable,
             shuttersObservable,
             resultSelector: { (heaters, lights, shutters) -> [DevicesSection] in
-                let lightsSection = DevicesSection(
-                    header: "Lights",
-                    items: lights.compactMap({ light -> DeviceCellModel in
-                        DeviceCellModel(deviceType: .light, title: light.deviceName, onSelect: { [weak self] in
-                            self?._selectedLight.accept(light)
-                        }, onLongPress: { [weak self] in
-                            self?._confirmDeviceRemoval.accept({ [weak self] in
-                                light.delete()
-                                self?.coreDataStack.saveContext()
-                            })
-                        })
-                }))
 
-                let heatersSection = DevicesSection(
-                    header: "Heaters",
-                    items: heaters.compactMap({ heater -> DeviceCellModel in
-                        DeviceCellModel(deviceType: .heater, title: heater.deviceName, onSelect: { [weak self] in
-                            self?._selectedHeater.accept(heater)
-                        }, onLongPress: { [weak self] in
-                            self?._confirmDeviceRemoval.accept({ [weak self] in
-                                heater.delete()
-                                self?.coreDataStack.saveContext()
-                            })
-                        })
-                    }))
+                var sections: [DevicesSection] = []
 
-                let shuttersSection = DevicesSection(
-                    header: "Shutters",
-                    items: shutters.compactMap({ shutter -> DeviceCellModel in
-                        DeviceCellModel(deviceType: .shutter, title: shutter.deviceName, onSelect: { [weak self] in
-                            self?._selectedShutter.accept(shutter)
-                        }, onLongPress: { [weak self] in
-                            self?._confirmDeviceRemoval.accept({ [weak self] in
-                                shutter.delete()
-                                self?.coreDataStack.saveContext()
+                if !lights.isEmpty {
+                    let lightsSection = DevicesSection(
+                        header: "Lights",
+                        items: lights.compactMap({ light -> DeviceCellModel in
+                            DeviceCellModel(deviceType: .light, title: light.deviceName, onSelect: { [weak self] in
+                                self?._selectedLight.accept(light)
+                                }, onLongPress: { [weak self] in
+                                    self?._confirmDeviceRemoval.accept({ [weak self] in
+                                        light.delete()
+                                        self?.coreDataStack.saveContext()
+                                    })
                             })
-                        })
-                    }))
+                        }))
 
-                return [lightsSection, heatersSection, shuttersSection]
+                    sections.append(lightsSection)
+                }
+
+                if !heaters.isEmpty {
+                    let heatersSection = DevicesSection(
+                        header: "Heaters",
+                        items: heaters.compactMap({ heater -> DeviceCellModel in
+                            DeviceCellModel(deviceType: .heater, title: heater.deviceName, onSelect: { [weak self] in
+                                self?._selectedHeater.accept(heater)
+                                }, onLongPress: { [weak self] in
+                                    self?._confirmDeviceRemoval.accept({ [weak self] in
+                                        heater.delete()
+                                        self?.coreDataStack.saveContext()
+                                    })
+                            })
+                        }))
+
+                    sections.append(heatersSection)
+                }
+
+                if !shutters.isEmpty {
+                    let shuttersSection = DevicesSection(
+                        header: "Shutters",
+                        items: shutters.compactMap({ shutter -> DeviceCellModel in
+                            DeviceCellModel(deviceType: .shutter, title: shutter.deviceName, onSelect: { [weak self] in
+                                self?._selectedShutter.accept(shutter)
+                                }, onLongPress: { [weak self] in
+                                    self?._confirmDeviceRemoval.accept({ [weak self] in
+                                        shutter.delete()
+                                        self?.coreDataStack.saveContext()
+                                    })
+                            })
+                        }))
+
+                    sections.append(shuttersSection)
+                }
+
+                return sections
         }).bind(to: _devicesSections).disposed(by: disposeBag)
     }
 }
