@@ -27,10 +27,15 @@ class ShutterViewViewModel {
     }
 
     func start() {
-        level.distinctUntilChanged().subscribe({ [weak self] event in
+        level.distinctUntilChanged().debounce(1.0, scheduler: MainScheduler.instance)
+            .subscribe({ [weak self] event in
             switch event {
             case .next(let level):
-                self?.shutter.position = level ?? 0
+                var validatedLevel = (level ?? 0)
+                validatedLevel = validatedLevel >= 0 ? validatedLevel : 0
+                validatedLevel = validatedLevel <= 28 ? validatedLevel : 28
+
+                self?.shutter.position = validatedLevel
                 self?.coreDataStack.saveContext()
             default:
                 break

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D20BDC324B8E9E9007C8B7D /* HeaterViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D20BDC224B8E9E9007C8B7D /* HeaterViewViewModelTest.swift */; };
+		9D20BDC524B8EA0B007C8B7D /* ShutterViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D20BDC424B8EA0B007C8B7D /* ShutterViewViewModelTest.swift */; };
+		9D20BDC724B9C7E2007C8B7D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 9D20BDC624B9C7E2007C8B7D /* Cartfile */; };
 		9D23E7E024A4D83600AF5799 /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23E7DF24A4D83600AF5799 /* HomeData.swift */; };
 		9D23E7E224A4FBB100AF5799 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23E7E124A4FBB100AF5799 /* User.swift */; };
 		9D23E7E424A4FCD400AF5799 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D23E7E324A4FCD400AF5799 /* Address.swift */; };
@@ -28,8 +31,6 @@
 		9D6E751224B43FD9009A0969 /* HeaterViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E751124B43FD9009A0969 /* HeaterViewViewModel.swift */; };
 		9D6E751424B44F2E009A0969 /* SeventSwitch+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E751324B44F2E009A0969 /* SeventSwitch+Rx.swift */; };
 		9D6E751624B46343009A0969 /* Float+round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E751524B46343009A0969 /* Float+round.swift */; };
-		9D6E751E24B60289009A0969 /* TechnicalTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E751D24B60289009A0969 /* TechnicalTestTests.swift */; };
-		9D6E752924B60BE0009A0969 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E752824B60BE0009A0969 /* XCTestCase.swift */; };
 		9D6E752B24B617E0009A0969 /* LightViewViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E752A24B617E0009A0969 /* LightViewViewModelTest.swift */; };
 		9D82097C24ACCF3F00544B40 /* DeviceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D82097B24ACCF3F00544B40 /* DeviceProtocol.swift */; };
 		9D88616124AB8BED00161706 /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D88616024AB8BED00161706 /* UIColor+Convenience.swift */; };
@@ -68,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D20BDC224B8E9E9007C8B7D /* HeaterViewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaterViewViewModelTest.swift; sourceTree = "<group>"; };
+		9D20BDC424B8EA0B007C8B7D /* ShutterViewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterViewViewModelTest.swift; sourceTree = "<group>"; };
+		9D20BDC624B9C7E2007C8B7D /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		9D23E7DF24A4D83600AF5799 /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
 		9D23E7E124A4FBB100AF5799 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9D23E7E324A4FCD400AF5799 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -92,9 +96,7 @@
 		9D6E751324B44F2E009A0969 /* SeventSwitch+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SeventSwitch+Rx.swift"; sourceTree = "<group>"; };
 		9D6E751524B46343009A0969 /* Float+round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+round.swift"; sourceTree = "<group>"; };
 		9D6E751B24B60288009A0969 /* TechnicalTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechnicalTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D6E751D24B60289009A0969 /* TechnicalTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalTestTests.swift; sourceTree = "<group>"; };
 		9D6E751F24B60289009A0969 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D6E752824B60BE0009A0969 /* XCTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
 		9D6E752A24B617E0009A0969 /* LightViewViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightViewViewModelTest.swift; sourceTree = "<group>"; };
 		9D82097B24ACCF3F00544B40 /* DeviceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceProtocol.swift; sourceTree = "<group>"; };
 		9D88616024AB8BED00161706 /* UIColor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Convenience.swift"; sourceTree = "<group>"; };
@@ -222,20 +224,12 @@
 		9D6E751C24B60289009A0969 /* TechnicalTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				9D6E752524B60296009A0969 /* Mock */,
-				9D6E751D24B60289009A0969 /* TechnicalTestTests.swift */,
 				9D6E752A24B617E0009A0969 /* LightViewViewModelTest.swift */,
+				9D20BDC224B8E9E9007C8B7D /* HeaterViewViewModelTest.swift */,
+				9D20BDC424B8EA0B007C8B7D /* ShutterViewViewModelTest.swift */,
 				9D6E751F24B60289009A0969 /* Info.plist */,
 			);
 			path = TechnicalTestTests;
-			sourceTree = "<group>";
-		};
-		9D6E752524B60296009A0969 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				9D6E752824B60BE0009A0969 /* XCTestCase.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		9DB2AB1324A21D6400CAB2E3 = {
@@ -260,6 +254,7 @@
 		9DB2AB1E24A21D6400CAB2E3 /* TechnicalTest */ = {
 			isa = PBXGroup;
 			children = (
+				9D20BDC624B9C7E2007C8B7D /* Cartfile */,
 				9D3CFADD24B2573D00A761A0 /* TechnicalTest-Bridging-Header.h */,
 				9D3CFADC24B2572500A761A0 /* 3rd party */,
 				9D280EB124A7A0EA00B95BE6 /* Persistence */,
@@ -393,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D20BDC724B9C7E2007C8B7D /* Cartfile in Resources */,
 				9DB2AB2D24A21D6500CAB2E3 /* LaunchScreen.storyboard in Resources */,
 				9DB2AB2A24A21D6500CAB2E3 /* Assets.xcassets in Resources */,
 			);
@@ -454,9 +450,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D6E752924B60BE0009A0969 /* XCTestCase.swift in Sources */,
+				9D20BDC324B8E9E9007C8B7D /* HeaterViewViewModelTest.swift in Sources */,
 				9D6E752B24B617E0009A0969 /* LightViewViewModelTest.swift in Sources */,
-				9D6E751E24B60289009A0969 /* TechnicalTestTests.swift in Sources */,
+				9D20BDC524B8EA0B007C8B7D /* ShutterViewViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

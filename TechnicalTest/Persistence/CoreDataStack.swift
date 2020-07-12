@@ -33,23 +33,48 @@ final class CoreDataStack {
     }()
     
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = { [weak self] in
-        guard let strongSelf = self else {fatalError("persistentStoreCoordinator error")}
+        guard let strongSelf = self else { fatalError("persistentStoreCoordinator error") }
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: strongSelf.managedObjectModel)
-        let url = strongSelf.applicationDocumentsDirectory.appendingPathComponent("TechnicalTest.sqlite")
-        
-        do {
-            let options = [ NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true ]
-            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
-        } catch {
-            print("Failed to initialize the application's saved data")
+
+        if persistInMemory {
+            do {
+                let options = [ NSMigratePersistentStoresAutomaticallyOption: true,
+                                NSInferMappingModelAutomaticallyOption: true ]
+                try coordinator.addPersistentStore(
+                    ofType: NSInMemoryStoreType,
+                    configurationName: nil,
+                    at: nil,
+                    options: nil
+                )
+            } catch {
+                print("Failed to initialize the application's saved data")
+            }
+        } else {
+            let url = strongSelf.applicationDocumentsDirectory.appendingPathComponent("TechnicalTest.sqlite")
+
+            do {
+                let options = [ NSMigratePersistentStoresAutomaticallyOption: true,
+                                NSInferMappingModelAutomaticallyOption: true ]
+                try coordinator.addPersistentStore(
+                    ofType: NSSQLiteStoreType,
+                    configurationName: nil,
+                    at: url,
+                    options: options
+                )
+            } catch {
+                print("Failed to initialize the application's saved data")
+            }
         }
         
         return coordinator
     }()
-    
+
+
+    private var persistInMemory: Bool
     // MARK: - Initializers
     
-    init() {
+    init(persistInMemory: Bool = false) {
+        self.persistInMemory = persistInMemory
         saveContext()
         
         print("Core Data: application directory is \(applicationDocumentsDirectory.absoluteString)")

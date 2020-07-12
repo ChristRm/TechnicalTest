@@ -134,7 +134,7 @@ class HeaterViewController: UIViewController {
             .bind(to: viewModel.temperature)
             .disposed(by: disposeBag)
 
-        temperatureSwitch.rx.isOn.debounce(1.0, scheduler: MainScheduler.instance)
+        temperatureSwitch.rx.isOn
             .bind(to: viewModel.mode).disposed(by: disposeBag)
 
         temperatureSwitch.rx.isOn

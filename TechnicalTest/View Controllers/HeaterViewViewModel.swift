@@ -31,7 +31,7 @@ class HeaterViewViewModel {
     }
 
     func start() {
-        mode.subscribe({ [weak self] event in
+        mode.debounce(1.0, scheduler: MainScheduler.instance).subscribe({ [weak self] event in
             switch event {
             case .next(let on):
                 self?.heater.mode = on == true ? "ON" : "OFF"
@@ -41,10 +41,14 @@ class HeaterViewViewModel {
             }
         }).disposed(by: disposeBag)
 
-        temperature.subscribe({ [weak self] event in
+        temperature.debounce(1.0, scheduler: MainScheduler.instance)
+            .subscribe({ [weak self] event in
             switch event {
             case .next(let temperature):
-                self?.heater.temperature = temperature ?? 0
+                var validatedTemperature = (temperature ?? 7.0)
+                validatedTemperature = validatedTemperature >= 7.0 ? validatedTemperature : 7.0
+                validatedTemperature = validatedTemperature <= 28.0 ? validatedTemperature : 28.0
+                self?.heater.temperature = validatedTemperature
                 self?.coreDataStack.saveContext()
             default:
                 break

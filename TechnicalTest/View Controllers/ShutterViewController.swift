@@ -82,8 +82,7 @@ class ShutterViewController: UIViewController {
             let intValue = Int(sliderValue * 100.0)
             self?.levelLabel.text = "\(intValue) %"
             return intValue
-        }).debounce(1.0, scheduler: MainScheduler.instance)
-            .bind(to: viewModel.level)
+        }).bind(to: viewModel.level)
             .disposed(by: disposeBag)
     }
 }
