@@ -50,20 +50,20 @@ class UserViewController: UIViewController {
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
-        addLabel(title: "Name: ")
+        addLabel(title: NSLocalizedString("Name", comment: "") + ": ")
         userNameTextField = addTextField()
-        addLabel(title: "Last name: ")
+        addLabel(title: NSLocalizedString("Last name", comment: "") + ": ")
         userLastNameTextField = addTextField()
-        addLabel(title: "Birth date: ")
+        addLabel(title: NSLocalizedString("Birth date", comment: "") + ": ")
         userBirthDateTextField = addDatePickerTextField()
 
-        addLabel(title: "City: ")
+        addLabel(title: NSLocalizedString("City", comment: "") + ": ")
         userCityTextField = addTextField()
-        addLabel(title: "Country: ")
+        addLabel(title: NSLocalizedString("Country", comment: "") + ": ")
         userCountryTextField = addTextField()
-        addLabel(title: "Street: ")
+        addLabel(title: NSLocalizedString("Street", comment: "") + ": ")
         userStreetTextField = addTextField()
-        addLabel(title: "Street code: ")
+        addLabel(title: NSLocalizedString("Street code", comment: "") + ": ")
         userStreetCodeTextField = addTextField()
 
         stackView.axis = .vertical

@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  TechnicalTest
+
+  Created by Chris Rusin on 7/12/20.
+  Copyright © 2020 ChristianRusin. All rights reserved.
+*/
+
+"Dashboard" = "Dashboard";
+"Lights" = "Lights";
+"Heaters" = "Heaters";
+"Shutters" = "Shutters";
+"Light" = "Light";
+"Heater" = "Heater";
+"Shutter" = "Shutter";
+"Name" = "Name";
+"Last name" = "Last name";
+"Birth date" = "Birth date";
+"City" = "City";
+"Country" = "Country";
+"Street" = "Street";
+"Street code" = "Street code";

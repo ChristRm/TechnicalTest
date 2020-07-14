@@ -111,7 +111,8 @@ class HeaterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Heater"
+
+        title = NSLocalizedString("Heater", comment: "")
         if let viewModel = viewModel {
             bindViewModel(viewModel)
             viewModel.start()

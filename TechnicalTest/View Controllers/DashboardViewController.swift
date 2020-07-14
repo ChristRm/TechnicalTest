@@ -52,7 +52,7 @@ final class DashboardViewController: UIViewController {
             bindViewModel(viewModel)
         }
 
-        title = "Dashboard"
+        title = NSLocalizedString("Dashboard", comment: "")
 
         let button =
             UIBarButtonItem(

@@ -111,7 +111,7 @@ class LightViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Light"
+        title = NSLocalizedString("Light", comment: "") 
         if let viewModel = viewModel {
             bindViewModel(viewModel)
             viewModel.start()

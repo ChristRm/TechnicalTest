@@ -98,7 +98,7 @@ final class DashboardViewViewModel {
 
                 if !lights.isEmpty {
                     let lightsSection = DevicesSection(
-                        header: "Lights",
+                        header: NSLocalizedString("Lights", comment: ""),
                         items: lights.compactMap({ light -> DeviceCellModel in
                             DeviceCellModel(deviceType: .light, title: light.deviceName, onSelect: { [weak self] in
                                 self?._selectedLight.accept(light)
@@ -115,7 +115,7 @@ final class DashboardViewViewModel {
 
                 if !heaters.isEmpty {
                     let heatersSection = DevicesSection(
-                        header: "Heaters",
+                        header: NSLocalizedString("Heaters", comment: ""),
                         items: heaters.compactMap({ heater -> DeviceCellModel in
                             DeviceCellModel(deviceType: .heater, title: heater.deviceName, onSelect: { [weak self] in
                                 self?._selectedHeater.accept(heater)
@@ -132,7 +132,7 @@ final class DashboardViewViewModel {
 
                 if !shutters.isEmpty {
                     let shuttersSection = DevicesSection(
-                        header: "Shutters",
+                        header: NSLocalizedString("Shutters", comment: ""),
                         items: shutters.compactMap({ shutter -> DeviceCellModel in
                             DeviceCellModel(deviceType: .shutter, title: shutter.deviceName, onSelect: { [weak self] in
                                 self?._selectedShutter.accept(shutter)

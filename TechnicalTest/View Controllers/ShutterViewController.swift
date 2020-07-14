@@ -62,7 +62,7 @@ class ShutterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Shutter"
+        title = NSLocalizedString("Shutter", comment: "")
 
         let trans = CGAffineTransform(rotationAngle: CGFloat(M_PI * -0.5))
         levelSlider.transform = trans
